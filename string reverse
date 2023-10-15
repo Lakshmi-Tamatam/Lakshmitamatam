@@ -1,0 +1,9 @@
+// const str = prompt("enter string"); here prompt is not working in vs code
+const str = "This is a sunny day";
+
+function reverseWordsInSentence(str) {
+    // Split the string into words, map through each word and reverse it, then join the words back into a string
+    return str.split(/\s+/).map(word => word.split('').reverse().join('')).join(' ');
+}
+
+console.log(`Reversed string is: ${reverseWordsInSentence(str)}`);
