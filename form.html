@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <title>Survey Form</title>
+    <style>
+        .form-container {
+            width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 2px solid black;
+            border-radius: 10px;
+        }
+
+        .form-field {
+            margin-bottom: 10px;
+        }
+
+        .form-field label {
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <div class="form-field">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" required>
+        </div>
+        <div class="form-field">
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" required>
+        </div>
+        <div class="form-field">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" required>
+        </div>
+        <div class="form-field">
+            <label for="country">Country:</label>
+            <select id="country" required>
+                <option value="">Select Country</option>
+                <option value="USA">United States</option>
+                <option value="CAN">Canada</option>
+                <option value="UK">United Kingdom</option>
+                <!-- Add more country options as needed -->
+            </select>
+        </div>
+        <div class="form-field">
+            <label>Gender:</label>
+            <input type="checkbox" id="male"> Male
+            <input type="checkbox" id="female"> Female
+        </div>
+        <div class="form-field">
+            <label for="profession">Profession:</label>
+            <input type="text" id="profession" required>
+        </div>
+        <div class="form-field">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+        </div>
+        <div class="form-field">
+            <label for="mobile">Mobile Number:</label>
+            <input type="tel" id="mobile" required>
+        </div>
+
+        <button type="button" onclick="submitForm()">Submit</button>
+        <button type="reset">Reset</button>
+    </div>
+
+    <script>
+        function submitForm() {
+            // Get form values
+            var firstName = document.getElementById('firstName').value;
+            var lastName = document.getElementById('lastName').value;
+            var dob = document.getElementById('dob').value;
+            var country = document.getElementById('country').value;
+            var gender = document.getElementById('male').checked ? 'Male' : '';
+            gender += document.getElementById('female').checked ? ' Female' : '';
+            var profession = document.getElementById('profession').value;
+            var email = document.getElementById('email').value;
+            var mobile = document.getElementById('mobile').value;
+
+            // Validate form fields (add your validation logic here)
+
+            // Display values in a popup
+            var popupContent = `<strong>Form Values:</strong><br><br>
+                                First Name: ${firstName}<br>
+                                Last Name: ${lastName}<br>
+                                Date of Birth: ${dob}<br>
+                                Country: ${country}<br>
+                                Gender: ${gender}<br>
+                                Profession: ${profession}<br>
+                                Email: ${email}<br>
+                                Mobile Number: ${mobile}`;
+
+            var popup = window.open('', 'Form Values', 'width=400,height=400');
+            popup.document.body.innerHTML = popupContent;
+            popup.focus();
+        }
+    </script>
+</body>
+
+</html>
